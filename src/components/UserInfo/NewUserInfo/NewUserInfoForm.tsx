@@ -1,6 +1,7 @@
 import React, { ReactNode, FormEvent, SyntheticEvent } from "react";
 import styles from "./NewUserInfoForm.module.css";
-import { UserInfoType } from "../../../types/types";
+import Button from "../../UI/Button";
+import Card from "../../UI/Card";
 
 type propsType = {
   usernameVal: string;
@@ -12,27 +13,29 @@ type propsType = {
 
 const NewUserInfoForm = (props: propsType) => {
   return (
-    <form onSubmit={props.onFormSubmit}>
-      <div className={styles["form-controls"]}>
-        <div className={styles["form-control"]}>
-          <label>Username</label>
-          <input
-            type="text"
-            value={props.usernameVal}
-            onChange={props.onUsernameStateChange}
-          />
+    <Card className={styles["inputCard"]}>
+      <form onSubmit={props.onFormSubmit}>
+        <div className={styles["form-controls"]}>
+          <div className={styles["form-control"]}>
+            <label>Username</label>
+            <input
+              type="text"
+              value={props.usernameVal}
+              onChange={props.onUsernameStateChange}
+            />
+          </div>
+          <div className={styles["form-control"]}>
+            <label>Age (Years)</label>
+            <input
+              type="text"
+              value={props.ageVal}
+              onChange={props.onAgeStateChange}
+            />
+          </div>
         </div>
-        <div className={styles["form-control"]}>
-          <label>Age (Years)</label>
-          <input
-            type="text"
-            value={props.ageVal}
-            onChange={props.onAgeStateChange}
-          />
-        </div>
-      </div>
-      <button type="submit">Add User</button>
-    </form>
+        <Button type="submit">Add User</Button>
+      </form>
+    </Card>
   );
 };
 

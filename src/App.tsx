@@ -3,6 +3,7 @@ import styles from "./App.module.css";
 import Card from "./components/UI/Card";
 import NewUserInfo from "./components/UserInfo/NewUserInfo/NewUserInfo";
 import { UserInfoType } from "./types/types";
+import UsersInfoList from "./components/UserInfo/UsersInfoDisplay/UsersInfoList";
 
 const DUMMY_USERS_INFO: UserInfoType[] = [
   {
@@ -29,9 +30,10 @@ function App() {
     });
   };
   return (
-    <Card className="">
+    <div>
       <NewUserInfo onPostAddNewUserInfo={postAddNewUserInfoHandler} />
-    </Card>
+      <UsersInfoList usersInfo={usersInfo} />
+    </div>
   );
 }
 
